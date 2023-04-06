@@ -10,6 +10,8 @@ services:
       - '8081:8081'
       - '9999:9999'
       - '9999:9999/udp'
+    volumes:
+      - /your/config/path/:/data/
     environment:
       - DOMAIN=vpn.example.com
     image: archef2000/outline
@@ -21,6 +23,7 @@ $ docker run -d \
               -p 8081:8081 \
               -p 9999:9999 \
               -p 9999:9999/udp \
+              -v /your/config/path/:/data/ \
               -e "DOMAIN=vpn.example.com" \
               archef2000/outline
 ```
@@ -42,7 +45,7 @@ $ docker run -d \
 ## Volumes
 | Volume | Required | Function | Example |
 |----------|----------|----------|----------|
-| `/data` | Yes | Outline server data | `/your/config/path/:/data`|
+| `/data` | Yes | Outline server data | `/your/config/path/:/data/`|
 
 ## Ports
 | Port | Proto | Required | Function | Example |
