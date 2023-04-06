@@ -5,14 +5,14 @@
 ```
 version: '3.3'
 services:
-    outline:
-        ports:
-            - '8081:8081'
-            - '9999:9999'
-            - '9999:9999/udp'
-        environment:
-            - DOMAIN=vpn.example.com
-        image: archef2000/outline
+  outline:
+    ports:
+      - '8081:8081'
+      - '9999:9999'
+      - '9999:9999/udp'
+    environment:
+      - DOMAIN=vpn.example.com
+    image: archef2000/outline
 ```
 
 ### docker run
