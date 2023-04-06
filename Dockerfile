@@ -50,7 +50,7 @@ RUN mkdir -p /data
 WORKDIR /opt/outline-server
 
 COPY --from=build /build/shadowbox/ .
-COPY entrypoint.sh /
+COPY --chmod=+x entrypoint.sh /
 
 ENV CERTIFICATE_FILE="/data/server.crt"
 ENV PRIVATE_KEY_FILE="/data/server.key"
