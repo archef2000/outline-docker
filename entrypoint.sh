@@ -49,7 +49,7 @@ fi
 CERT_OPENSSL_FINGERPRINT="$(openssl x509 -noout -fingerprint -sha256 -inform pem -in ${SB_CERTIFICATE_FILE} )"
 CERT_OPENSSL_FINGERPRINT="$(echo "${CERT_OPENSSL_FINGERPRINT#*=}" | tr -d :)"
 
-echo {"\"apiUrl\"": "\"https://${SB_PUBLIC_IP}:${SB_API_PORT}/${SB_API_PREFIX}\"","\"certSha256\"": \"$CERT_OPENSSL_FINGERPRINT\" }
+echo ":::Outline Manager: {\"apiUrl\": \"https://${SB_PUBLIC_IP}:${SB_API_PORT}/${SB_API_PREFIX}\",\"certSha256\": \"$CERT_OPENSSL_FINGERPRINT\" }"
 
 umask 0007
 ulimit -n 32768
