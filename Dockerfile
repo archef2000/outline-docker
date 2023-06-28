@@ -59,6 +59,7 @@ WORKDIR /opt/outline-server
 
 COPY --from=build /build/shadowbox/ .
 COPY entrypoint.sh /
+RUN mv /opt/outline-server/bin/prometheus /opt/outline-server/bin/prometheus.orginal
 
 RUN chmod +x /entrypoint.sh
 
