@@ -1,12 +1,5 @@
 ARG NODE_IMAGE="node:16.18.0-alpine3.16"
 
-FROM ${NODE_IMAGE} AS builder
-
-COPY empty_bin.c /
-WORKDIR /
-RUN apk add build-base \
-    && gcc -o empty_bin empty_bin.c
-
 FROM ${NODE_IMAGE} AS downloader
 
 ARG OUTLINE_VERSION="manager-v1.14.0"
@@ -35,7 +28,6 @@ COPY --from=downloader /outline/scripts scripts/
 COPY --from=downloader /outline/src src/
 COPY --from=downloader /outline/tsconfig.json ./
 COPY --from=downloader /outline/third_party third_party
-COPY --from=builder /empty_bin /empty_bin
 
 RUN ROOT_DIR=/ npm run action shadowbox/server/build
 
