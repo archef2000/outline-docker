@@ -28,8 +28,7 @@ unlink /opt/outline-server/bin/prometheus 2> /dev/null
 if [[ "${DISABLE_PROMETHEUS}" == "true" ]]
 then
     ln -s /empty_bin /opt/outline-server/bin/prometheus
-elif
-then
+else
     ln -s /opt/outline-server/bin/prometheus.orginal /opt/outline-server/bin/prometheus
 fi
 
