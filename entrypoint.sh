@@ -24,14 +24,6 @@ then
     SB_METRICS_URL=""
 fi
 
-unlink /opt/outline-server/bin/prometheus 2> /dev/null
-if [[ "${DISABLE_PROMETHEUS}" == "true" ]]
-then
-    ln -s /empty_bin /opt/outline-server/bin/prometheus
-else
-    ln -s /opt/outline-server/bin/prometheus.orginal /opt/outline-server/bin/prometheus
-fi
-
 if [[ -f "${ACCESS_CONFIG}" ]]
 then
     export SB_API_PREFIX="$(cat "${ACCESS_CONFIG}")"
